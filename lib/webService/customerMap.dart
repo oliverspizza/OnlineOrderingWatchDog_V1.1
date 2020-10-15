@@ -5,7 +5,7 @@ import 'package:geocoder/geocoder.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:online_ordering_watchdog/webService/webServiceOrderDetailPage.dart';
+import 'package:online_ordering_watchdog/webService/OrderDetail.dart';
 import 'dart:async';
 import 'package:permission/permission.dart';
 

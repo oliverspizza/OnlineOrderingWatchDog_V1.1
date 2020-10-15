@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:online_ordering_watchdog/views/allOrderListView.dart';
-import 'package:online_ordering_watchdog/webService/webServiceOrderDetailPage.dart';
+import 'package:online_ordering_watchdog/webService/OrderDetail.dart';
 import 'model/cartData.dart';
 import 'package:provider/provider.dart';
 import './views/newOrderScreen.dart';
@@ -41,9 +41,14 @@ class FirstHalf extends StatelessWidget {
 
 class CustomAppBar extends StatelessWidget {
   logo() {
-    return ClipRect(
-      child: Align(child: Image.asset('assets/o_logo.png')),
+    return Text(
+      "Online Ordering",
+      style: TextStyle(fontSize: 75),
     );
+
+//      ClipRect(
+//      child: Align(child: Image.asset('assets/o_logo.png')),
+//    );
   }
 
   @override
@@ -51,6 +56,7 @@ class CustomAppBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
+        color: Colors.red,
         height: MediaQuery.of(context).size.height,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -62,7 +68,10 @@ class CustomAppBar extends StatelessWidget {
                 },
                 child: IconButton(
                   iconSize: 50,
-                  icon: Icon(Icons.menu),
+                  icon: Icon(
+                    Icons.menu,
+                    color: Colors.black,
+                  ),
                 )),
           ],
         ),
@@ -101,8 +110,8 @@ class HomeScreenDrawer extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => NewOrderScreen()));
+//              Navigator.push(context,
+//                  MaterialPageRoute(builder: (context) => NewOrderScreen()));
             },
             title: Text("Something", style: drawerFont),
           ),

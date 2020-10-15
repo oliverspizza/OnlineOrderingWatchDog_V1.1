@@ -3,8 +3,17 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:online_ordering_watchdog/webService/OrderDetail.dart';
 
 class NewOrderScreen extends StatelessWidget {
+  String custName;
+  String phoneNumber;
+  String orderID;
+  NewOrderScreen(
+    String custName,
+    String phoneNumber,
+    String orderID,
+  );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +23,7 @@ class NewOrderScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Container(
               decoration: BoxDecoration(color: Colors.black),
-              child: TimeSelector(),
+              child: TimeSelector(custName, phoneNumber, orderID),
             ),
           ),
         ),
@@ -39,15 +48,22 @@ const headerFont = TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.w900);
 
+// need to pass data from all orders to new screen state.
+
 class TimeSelector extends StatefulWidget {
+  String custName;
+  String phoneNumber;
+  String orderID;
+  TimeSelector(
+    String custName,
+    String phoneNumber,
+    String orderID,
+  );
   @override
   _TimeSelectorState createState() => _TimeSelectorState();
 }
 
 class _TimeSelectorState extends State<TimeSelector> {
-  var _customerName = 'John Oliver';
-  var _phoneNumber = '(248)-379-3715';
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -60,7 +76,7 @@ class _TimeSelectorState extends State<TimeSelector> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Text(
-                'Confirm order',
+                'CONFIRM ORDER',
                 style: headerFont,
               ),
             ],
@@ -85,14 +101,14 @@ class _TimeSelectorState extends State<TimeSelector> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: Text(
-                          'Customer Name: $_customerName',
+                          widget.custName,
                           style: customerFont,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: Text(
-                          'Phone Number: $_phoneNumber',
+                          widget.phoneNumber,
                           style: customerFont,
                         ),
                       ),

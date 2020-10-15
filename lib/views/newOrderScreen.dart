@@ -13,7 +13,7 @@ class NewOrderScreen extends StatelessWidget {
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Container(
-              decoration: BoxDecoration(color: Colors.grey),
+              decoration: BoxDecoration(color: Colors.black),
               child: TimeSelector(),
             ),
           ),
@@ -24,13 +24,20 @@ class NewOrderScreen extends StatelessWidget {
 }
 
 String timeSelected;
-const timeFontStyle = TextStyle(fontSize: 40, color: Colors.black);
+const timeFontStyle = TextStyle(fontSize: 40, color: Colors.white);
 const customerFont = TextStyle(
     wordSpacing: 7.0,
     letterSpacing: 1.50,
-    fontSize: 42,
-    color: Colors.white,
+    fontSize: 40,
+    color: Colors.black,
     fontWeight: FontWeight.bold);
+
+const headerFont = TextStyle(
+    wordSpacing: 7.0,
+    letterSpacing: 2.0,
+    fontSize: 40,
+    color: Colors.white,
+    fontWeight: FontWeight.w900);
 
 class TimeSelector extends StatefulWidget {
   @override
@@ -52,37 +59,9 @@ class _TimeSelectorState extends State<TimeSelector> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
-                padding: EdgeInsets.all(10),
-                elevation: 10,
-                onPressed: () {
-                  print('15-20');
-                },
-                child: Text(
-                  ' 15 - 20 Minutes ',
-                  style: timeFontStyle,
-                ),
-              ),
               Text(
-                'How long?',
-                style: customerFont,
-              ),
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
-                padding: EdgeInsets.all(10),
-                elevation: 10,
-                onPressed: () {
-                  print('25-30');
-                },
-                child: Text(
-                  ' 25 - 30 Minutes ',
-                  style: timeFontStyle,
-                ),
+                'Confirm order',
+                style: headerFont,
               ),
             ],
           ),
@@ -91,11 +70,11 @@ class _TimeSelectorState extends State<TimeSelector> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               ClipRRect(
-                borderRadius: BorderRadius.circular(45),
+                borderRadius: BorderRadius.circular(30),
                 child: Container(
                   height: 170,
                   decoration: BoxDecoration(
-                      shape: BoxShape.rectangle, color: Colors.red),
+                      shape: BoxShape.rectangle, color: Colors.yellowAccent),
                   margin: EdgeInsets.all(5),
 //                padding: EdgeInsets.all(),
 //               color: Colors.white,
@@ -123,35 +102,82 @@ class _TimeSelectorState extends State<TimeSelector> {
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Column(
             children: <Widget>[
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
-                padding: EdgeInsets.all(10),
-                elevation: 10,
-                onPressed: () {
-                  print('30-45');
-                },
-                child: Text(
-                  ' 30 - 45 Minutes ',
-                  style: timeFontStyle,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 55.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    RaisedButton(
+                      color: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      padding: EdgeInsets.all(10),
+                      elevation: 10,
+                      onPressed: () {
+                        print('25-30');
+                      },
+                      child: Text(
+                        ' 25 - 30 Minutes ',
+                        style: timeFontStyle,
+                      ),
+                    ),
+                    RaisedButton(
+                      color: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      padding: EdgeInsets.all(10),
+                      elevation: 10,
+                      onPressed: () {
+                        print('15-20');
+                      },
+                      child: Text(
+                        ' 15 - 20 Minutes ',
+                        style: timeFontStyle,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
-                padding: EdgeInsets.all(10),
-                elevation: 10,
-                onPressed: () {
-                  print('45-60');
-                },
-                child: Text(
-                  ' 45 - 60 Minutes ',
-                  style: timeFontStyle,
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    RaisedButton(
+                      color: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      padding: EdgeInsets.all(10),
+                      elevation: 10,
+                      onPressed: () {
+                        print('30-45');
+                      },
+                      child: Text(
+                        ' 30 - 45 Minutes ',
+                        style: timeFontStyle,
+                      ),
+                    ),
+                    RaisedButton(
+                      color: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ),
+                      padding: EdgeInsets.all(10),
+                      elevation: 10,
+                      onPressed: () {
+                        print('45-60');
+                      },
+                      child: Text(
+                        ' 45 - 60 Minutes ',
+                        style: timeFontStyle,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

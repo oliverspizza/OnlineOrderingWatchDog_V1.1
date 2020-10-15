@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:online_ordering_watchdog/views/allOrderListView.dart';
-import 'package:online_ordering_watchdog/webService/webServiceOrderDetailPage.dart';
+import 'package:online_ordering_watchdog/webService/OrderDetail.dart';
 import 'model/cartData.dart';
 import 'package:provider/provider.dart';
 import './views/newOrderScreen.dart';

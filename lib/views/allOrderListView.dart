@@ -7,7 +7,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'newOrderScreen.dart';
 
-import 'package:online_ordering_watchdog/webService/webServiceOrderDetailPage.dart';
+import 'package:online_ordering_watchdog/webService/OrderDetail.dart';
 
 import '../main.dart';
 

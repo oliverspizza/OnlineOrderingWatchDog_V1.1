@@ -1,19 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:online_ordering_watchdog/webService/OrderDetail.dart';
 
 class NewOrderScreen extends StatelessWidget {
-  String custName;
-  String phoneNumber;
-  String orderID;
-  NewOrderScreen(
-    String custName,
-    String phoneNumber,
-    String orderID,
-  );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +13,7 @@ class NewOrderScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Container(
               decoration: BoxDecoration(color: Colors.black),
-              child: TimeSelector(custName, phoneNumber, orderID),
+              child: TimeSelector(),
             ),
           ),
         ),
@@ -51,14 +41,6 @@ const headerFont = TextStyle(
 // need to pass data from all orders to new screen state.
 
 class TimeSelector extends StatefulWidget {
-  String custName;
-  String phoneNumber;
-  String orderID;
-  TimeSelector(
-    String custName,
-    String phoneNumber,
-    String orderID,
-  );
   @override
   _TimeSelectorState createState() => _TimeSelectorState();
 }
@@ -101,14 +83,14 @@ class _TimeSelectorState extends State<TimeSelector> {
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: Text(
-                          widget.custName,
+                          ' NEW ',
                           style: customerFont,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: Text(
-                          widget.phoneNumber,
+                          ' ORDER ',
                           style: customerFont,
                         ),
                       ),
@@ -133,6 +115,7 @@ class _TimeSelectorState extends State<TimeSelector> {
                       padding: EdgeInsets.all(10),
                       elevation: 10,
                       onPressed: () {
+                        Navigator.pop(context);
                         print('25-30');
                       },
                       child: Text(
@@ -148,6 +131,7 @@ class _TimeSelectorState extends State<TimeSelector> {
                       padding: EdgeInsets.all(10),
                       elevation: 10,
                       onPressed: () {
+                        Navigator.pop(context);
                         print('15-20');
                       },
                       child: Text(
@@ -171,6 +155,7 @@ class _TimeSelectorState extends State<TimeSelector> {
                       padding: EdgeInsets.all(10),
                       elevation: 10,
                       onPressed: () {
+                        Navigator.pop(context);
                         print('30-45');
                       },
                       child: Text(
@@ -186,6 +171,7 @@ class _TimeSelectorState extends State<TimeSelector> {
                       padding: EdgeInsets.all(10),
                       elevation: 10,
                       onPressed: () {
+                        Navigator.pop(context);
                         print('45-60');
                       },
                       child: Text(

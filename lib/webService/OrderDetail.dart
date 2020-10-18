@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'customerMap.dart';
 
 var orderId;
 var customerName;
@@ -24,6 +23,7 @@ class OrderDetail extends StatefulWidget {
 
 class _OrderDetailState extends State<OrderDetail> {
   List dataDetail = [];
+
   // Main item ID
   String parentItemId;
   List<String> modifierList = [];
@@ -34,19 +34,25 @@ class _OrderDetailState extends State<OrderDetail> {
   List<String> catModifierList = [];
   Timer count;
 
-  var orderDetails = 'https://orderformula'
+  ///api for order detail(get request)
+  var url = 'https://orderformula'
       '.net/api/product/readitems'
       '.php?argument1=$orderId';
 
   Future<dynamic> _orderDetailRequest() async {
-    var response = await http.get(orderDetails);
+    var response = await http.get(url);
     setState(() {
       if (response.statusCode == 200) {
         var jsonRes = jsonDecode(response.body);
         dataDetail = jsonRes['items'];
       }
+      for (var i = 0; i < dataDetail.length / 2; i++) {
+        var temp = dataDetail[i];
+        dataDetail[i] = dataDetail[dataDetail.length - 1 - i];
+        dataDetail[dataDetail.length - 1 - i] = temp;
+      }
 
-      ///sets id for parent item
+      ///  Item ID matches parent ID of modifiers.
 
 //      for (var i in dataDetail) {
 //        if (double.parse(i["ParentID"]) == 0) {

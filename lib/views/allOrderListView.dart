@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'newOrderScreen.dart';
 import 'package:online_ordering_watchdog/webService/OrderDetail.dart';
 import '../main.dart';
@@ -111,11 +110,8 @@ class _AllOrderPreviewListViewState extends State<AllOrderPreviewListView> {
         assetsAudioPlayer.open("assets/Bruh-sound-effect.mp3");
         print("NEW ORDER");
         orderId = i["id"];
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => NewOrderScreen(
-                    i["CustomerName"], i["CustomerMobile"], i["id"]))); //
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => NewOrderScreen())); //
         // need to take
         // customer
         // data in

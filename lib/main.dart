@@ -67,6 +67,9 @@ class CustomAppBar extends StatelessWidget {
                   Scaffold.of(context).openDrawer();
                 },
                 child: IconButton(
+                  onPressed: () {
+                    print('button pressed.');
+                  },
                   iconSize: 50,
                   icon: Icon(
                     Icons.menu,
@@ -110,8 +113,8 @@ class HomeScreenDrawer extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-//              Navigator.push(context,
-//                  MaterialPageRoute(builder: (context) => NewOrderScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => NewOrderScreen()));
             },
             title: Text("Something", style: drawerFont),
           ),

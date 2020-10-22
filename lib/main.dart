@@ -67,9 +67,6 @@ class CustomAppBar extends StatelessWidget {
                   Scaffold.of(context).openDrawer();
                 },
                 child: IconButton(
-                  onPressed: () {
-                    print('button pressed.');
-                  },
                   iconSize: 50,
                   icon: Icon(
                     Icons.menu,

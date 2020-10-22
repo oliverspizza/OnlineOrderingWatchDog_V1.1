@@ -168,14 +168,20 @@ class _OrderDetailState extends State<OrderDetail> {
                   padding: const EdgeInsets.fromLTRB(25, 20, 25, 5),
                   child: Container(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(
-                          dataDetail[index]["Qty"],
-                          style: fontLook,
+                        Expanded(
+                        flex: 1,
+                          child: Text(
+                            dataDetail[index]["Qty"],
+                            style: fontLook,
+                          ),
                         ),
-                        Text(dataDetail[index]["RefName"], style: fontLook),
-                        Text(dataDetail[index]["ItemAmount"], style: fontLook),
+                        Expanded(
+                          flex: 3,
+                            child: Text(dataDetail[index]["RefName"], style: fontLook)),
+                        Expanded(
+                          flex: 1,
+                            child: Text(dataDetail[index]["ItemAmount"], style: fontLook)),
                       ],
                     ),
                   ),

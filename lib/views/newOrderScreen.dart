@@ -6,9 +6,7 @@ import 'package:flutter/rendering.dart';
 class NewOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SafeArea(
-        child: Scaffold(
+    return Scaffold(
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Container(
@@ -16,8 +14,6 @@ class NewOrderScreen extends StatelessWidget {
               child: TimeSelector(),
             ),
           ),
-        ),
-      ),
     );
   }
 }
@@ -102,85 +98,96 @@ class _TimeSelectorState extends State<TimeSelector> {
           ),
           Column(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(bottom: 55.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    RaisedButton(
-                      color: Colors.red,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      padding: EdgeInsets.all(10),
-                      elevation: 10,
-                      onPressed: () {
-                        Navigator.pop(context);
-                        print('25-30');
-                      },
-                      child: Text(
-                        ' 25 - 30 Minutes ',
-                        style: timeFontStyle,
-                      ),
-                    ),
-                    RaisedButton(
-                      color: Colors.red,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      padding: EdgeInsets.all(10),
-                      elevation: 10,
-                      onPressed: () {
-                        Navigator.pop(context);
-                        print('15-20');
-                      },
-                      child: Text(
-                        ' 15 - 20 Minutes ',
-                        style: timeFontStyle,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: RaisedButton(
+                        color: Colors.red,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+
+                        elevation: 10,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          print('25-30');
+                        },
+                        child: Text(
+                          ' 25 - 30 Minutes ',
+                          style: timeFontStyle,
+                        ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: RaisedButton(
+                        color: Colors.red,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+                        elevation: 10,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          print('15-20');
+                        },
+                        child: Text(
+                          ' 15 - 20 Minutes ',
+                          style: timeFontStyle,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    RaisedButton(
-                      color: Colors.red,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      padding: EdgeInsets.all(10),
-                      elevation: 10,
-                      onPressed: () {
-                        Navigator.pop(context);
-                        print('30-45');
-                      },
-                      child: Text(
-                        ' 30 - 45 Minutes ',
-                        style: timeFontStyle,
-                      ),
-                    ),
-                    RaisedButton(
-                      color: Colors.red,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                      ),
-                      padding: EdgeInsets.all(10),
-                      elevation: 10,
-                      onPressed: () {
-                        Navigator.pop(context);
-                        print('45-60');
-                      },
-                      child: Text(
-                        ' 45 - 60 Minutes ',
-                        style: timeFontStyle,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: RaisedButton(
+                        color: Colors.red,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+                        elevation: 10,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          print('30-45');
+                        },
+                        child: Text(
+                          ' 30 - 45 Minutes ',
+                          style: timeFontStyle,
+                        ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: RaisedButton(
+                        color: Colors.red,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ),
+                        elevation: 10,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          print('45-60');
+                        },
+                        child: Text(
+                          ' 45 - 60 Minutes ',
+                          style: timeFontStyle,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

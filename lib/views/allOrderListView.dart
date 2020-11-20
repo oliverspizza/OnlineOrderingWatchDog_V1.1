@@ -86,6 +86,15 @@ class _AllOrderPreviewListViewState extends State<AllOrderPreviewListView> {
       return "Asap Order";
     }
   }
+  
+    /// returns time order was placed at
+  _orderTime(String time) {
+    var orderAtTime = DateTime.parse(time);
+    var timeZone = orderAtTime;
+    var dayOfOrder = DateFormat.E().format(timeZone).toString();
+    var timeOfOrder = DateFormat.jm().format(timeZone).toString();
+    return "$timeOfOrder on $dayOfOrder";
+  }
 
   /// orderCreated calculates if new order was received.
   ///
@@ -177,7 +186,9 @@ class _AllOrderPreviewListViewState extends State<AllOrderPreviewListView> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
                           Text(
-                            "${data[i]["OrderType"]}",
+                            "${data[i]["OrderType"]}"
+                            "\nOrdered at ${_orderTime(data[i]["CreatedDate"])}", //DateFormat.MMMd().format
+                            // (data[i]["CreatedDate"]).toString()
                             style: detailFont,
                           ),
                           Text(

@@ -11,7 +11,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // multiprovider not needed it looks like
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -81,7 +80,8 @@ class CustomAppBar extends StatelessWidget {
 }
 
 const drawerFont = TextStyle(color: Colors.red, fontSize: 20);
-
+// This widget is for the side panel (drawer) that slides, menu button.
+//Could be used for other items, like posting today's deferred orders.
 class HomeScreenDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

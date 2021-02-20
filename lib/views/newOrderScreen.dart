@@ -2,7 +2,11 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+/// This view should be displayed with every new order.
+/// It needs the customer info to display as well, name, number, and service type.
 
+/// Order id needs to be stored in HDD of device, a comparison of id's needs to generate new order view.
+/// look into shared preferences.
 class NewOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,8 +37,6 @@ const headerFont = TextStyle(
     fontSize: 40,
     color: Colors.white,
     fontWeight: FontWeight.w900);
-
-// need to pass data from all orders to new screen state.
 
 class TimeSelector extends StatefulWidget {
   @override

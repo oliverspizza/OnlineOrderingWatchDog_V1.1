@@ -4,6 +4,10 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+
+/// This page is for generating a list view of all items on a
+/// ticket. It does not pull customer comments(comment boxes on each item in checkout).
+
 var orderId;
 var customerName;
 var customerAddress;
@@ -11,7 +15,8 @@ var customerPhone;
 var customerOrderType;
 var customerState;
 var customerZip;
-
+var discountCode;
+//for styling displayed text
 const detailFont = TextStyle(fontSize: 20, fontWeight: FontWeight.w900);
 const fontLook = TextStyle(fontSize: 25, fontWeight: FontWeight.bold);
 const titleFont = TextStyle(fontSize: 40);
@@ -34,14 +39,14 @@ class _OrderDetailState extends State<OrderDetail> {
   List<String> catModifierList = [];
   Timer count;
 
-  ///api for order detail(get request)
-  var url = 'https://orderformula'
-      '.net/api/product/readitems'
+  //api for order detail(get request).
+  var url = 'https://oliversmacomb.orderformula.net/api/product/readitems'
       '.php?argument1=$orderId';
 
   Future<dynamic> _orderDetailRequest() async {
     var response = await http.get(url);
     setState(() {
+
       if (response.statusCode == 200) {
         var jsonRes = jsonDecode(response.body);
         dataDetail = jsonRes['items'];
@@ -52,43 +57,16 @@ class _OrderDetailState extends State<OrderDetail> {
         dataDetail[dataDetail.length - 1 - i] = temp;
       }
 
-      ///  Item ID matches parent ID of modifiers.
 
-//      for (var i in dataDetail) {
-//        if (double.parse(i["ParentID"]) == 0) {
-//          parentName = i["RefName"];
-//          parentItemId = i["ParentID"];
-//        }
-//      }
-//      for (var i in dataDetail) {
-//        if (double.parse(i["ParentID"]) == double.parse(parentItemId) &&
-//            i["RefType"] == "P") {
-//          modifierList.add(i["RefName"]);
-//        }
-//      }
     });
   }
-
-//  int total = 0;
-//  addValue() {
-//    total++;
-//  }
-//
-//  @override
-//  void initState() {
-//    if (total != 2) {
-//      addValue();
-//      count = Timer.periodic(
-//          Duration(seconds: 1), (Timer t) => _orderDetailRequest());
-//    }
-//  }
 
   @override
   void initState() {
     _orderDetailRequest();
   }
 
-  /// calling dispose after loading
+  // calling dispose after data loads.
   @override
   void dispose() {
     super.dispose();
@@ -101,6 +79,7 @@ class _OrderDetailState extends State<OrderDetail> {
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(250.0),
           child: SafeArea(
+            /// Start of detail box with customer info displayed.
             child: Container(
               decoration: BoxDecoration(
                   border: Border.all(width: 2.0),
@@ -157,10 +136,13 @@ class _OrderDetailState extends State<OrderDetail> {
                 ],
               ),
             ),
+            /// End of detail page with customer info displayed.
           ),
         ),
+        /// Start of list view for displaying items of order.
         body: ListView.builder(
             itemExtent: 55,
+            // dataDetail is reference to json items for iteration.
             itemCount: dataDetail.length,
             itemBuilder: (BuildContext context, int index) {
               return Center(

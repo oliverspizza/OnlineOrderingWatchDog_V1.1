@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-
+///
+/// For spinner in between views. Not used.
+///
 class Loader extends StatefulWidget {
   @override
   _LoaderState createState() => _LoaderState();
